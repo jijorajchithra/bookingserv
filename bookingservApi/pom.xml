@@ -61,6 +61,7 @@
                     <targetPackage>com.paypal.bfs.test.bookingserv.api.model</targetPackage>
                     <useCommonsLang3>true</useCommonsLang3>
                     <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                    <includeJsr305Annotations>true</includeJsr305Annotations>
                 </configuration>
                 <executions>
                     <execution>
