@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "description": "Booking id",
-      "type": "integer"
+      "type": "string"
     },
     "first_name": {
       "description": "First name",
