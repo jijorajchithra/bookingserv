@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 // @ComponentScan(basePackageClasses = {BookingServApplication.class, BookingServiceImpl.class, BookingService.class, BookingDaoService.class})
 @ComponentScan("com.paypal.bfs")
+@ComponentScan("org.hibernate")
 @SpringBootApplication
 public class BookingServApplication {
     public static void main(String[] args) {
