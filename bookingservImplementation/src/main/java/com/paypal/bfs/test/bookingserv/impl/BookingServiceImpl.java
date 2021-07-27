@@ -1,6 +1,7 @@
 package com.paypal.bfs.test.bookingserv.impl;
 
 import com.paypal.bfs.test.bookingserv.api.model.Booking;
+import com.paypal.bfs.test.bookingserv.dao.entity.AddressEntity;
 import com.paypal.bfs.test.bookingserv.dao.entity.BookingEntity;
 import com.paypal.bfs.test.bookingserv.dao.service.BookingDaoService;
 import com.paypal.bfs.test.bookingserv.service.BookingService;
@@ -20,6 +21,11 @@ public class BookingServiceImpl implements BookingService {
         BookingEntity bookingEntity = new BookingEntity();
         bookingEntity.firstName = booking.getFirstName();
         bookingEntity.lastName = booking.getLastName();
+
+        AddressEntity addressEntity = new AddressEntity();
+        addressEntity.line1 = booking.getAddress().getLine1();
+        addressEntity.line2 = booking.getAddress().getLine2();
+        bookingEntity.address = addressEntity;
 
         return bookingDao.addBooking(bookingEntity);
     }

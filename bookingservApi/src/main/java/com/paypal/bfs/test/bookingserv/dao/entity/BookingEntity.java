@@ -11,8 +11,9 @@ import java.math.BigInteger;
 @Table(name="BOOKINGS")
 public class BookingEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "REQUEST_ID", unique = true, nullable = false, insertable = true, updatable = false)
+    // @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(generator = "idGenerator")
+    @Column(name = "BOOKING_ID", unique = true, nullable = false, insertable = true, updatable = false)
     public BigInteger id;
 
     @Column(name="FIRST_NAME", length=50, nullable=false, unique=false)
@@ -20,4 +21,8 @@ public class BookingEntity {
 
     @Column(name="LAST_NAME", length=50, nullable=false, unique=false)
     public String lastName;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ADDRESS_ID")
+    public AddressEntity address;
 }

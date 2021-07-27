@@ -11,7 +11,12 @@
       "description": "First name",
       "type": "string",
       "minLength": 1,
-      "maxLength": 255
+      "maxLength": 255,
+      "messages" : {
+        "minLength": "client error: first name cannot be empty",
+        "maxLength": "client error: first name cannot be greater than 255",
+        "required": "client error: first name is required"
+      }
     },
     "last_name": {
       "description": "Last name",
