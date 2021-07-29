@@ -4,11 +4,13 @@ import javax.persistence.*;
 import com.paypal.bfs.test.bookingserv.api.model.Address;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Data;
 
 import java.math.BigInteger;
 
 @Entity
 @Table(name="BOOKINGS")
+@Data
 public class BookingEntity {
     @Id
     // @GeneratedValue(strategy=GenerationType.AUTO)
