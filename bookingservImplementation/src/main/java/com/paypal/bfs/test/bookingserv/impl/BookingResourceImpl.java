@@ -33,7 +33,7 @@ public class BookingResourceImpl implements BookingResource {
         String id = bookingService.addBooking(booking);
         booking.setId(id);
 
-        return ResponseEntity.accepted().body(booking);
+        return ResponseEntity.status(HttpStatus.CREATED).body(booking);
     }
 
     private void validateRequest(Booking booking) {
