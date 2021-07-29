@@ -13,8 +13,7 @@ import java.math.BigInteger;
 @Data
 public class BookingEntity {
     @Id
-    // @GeneratedValue(strategy=GenerationType.AUTO)
-    @GeneratedValue(generator = "idGenerator")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "BOOKING_ID", unique = true, nullable = false, insertable = true, updatable = false)
     public BigInteger id;
 

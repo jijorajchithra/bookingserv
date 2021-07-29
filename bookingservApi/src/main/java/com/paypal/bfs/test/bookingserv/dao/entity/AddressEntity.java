@@ -1,14 +1,16 @@
 package com.paypal.bfs.test.bookingserv.dao.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
 @Table(name="ADDRESS")
+@Data
 public class AddressEntity {
     @Id
-    // @GeneratedValue(strategy= GenerationType.AUTO)
-    @GeneratedValue(generator = "idGenerator")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ADDRESS_ID", unique = true, nullable = false, insertable = true, updatable = false)
     public BigInteger id;
 
