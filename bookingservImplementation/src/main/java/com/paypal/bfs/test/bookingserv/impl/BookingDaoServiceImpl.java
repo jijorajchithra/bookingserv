@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
+
 @Service
 public class BookingDaoServiceImpl implements BookingDaoService {
     @Autowired
@@ -17,5 +19,9 @@ public class BookingDaoServiceImpl implements BookingDaoService {
     public String addBooking(BookingEntity bookingEntity) {
         BookingEntity createdEntity = bookingRepository.save(bookingEntity);
         return createdEntity.id.toString();
+    }
+
+    public BookingEntity getBooking(BigInteger id) {
+        return bookingRepository.findById(id).orElse(null);
     }
 }
