@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface BookingService {
     String addBooking(Booking booking);
-    Booking getBooking(int id);
+    Booking getBooking(String id);
     List<Booking> getAllBookings(int offset, int limit);
 }

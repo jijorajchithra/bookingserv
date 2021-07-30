@@ -1,5 +1,6 @@
 package com.paypal.bfs.test.bookingserv.impl;
 
+import com.paypal.bfs.test.bookingserv.api.model.Address;
 import com.paypal.bfs.test.bookingserv.api.model.Booking;
 import com.paypal.bfs.test.bookingserv.dao.entity.AddressEntity;
 import com.paypal.bfs.test.bookingserv.dao.entity.BookingEntity;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -31,9 +33,23 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public Booking getBooking(int id) {
-        // BigInteger bigInteger = BigInteger.valueOf(id);
-        // return bookingDao.findById(BigInteger.valueOf(id));
+    public Booking getBooking(String id) {
+        BigInteger bookingId = new BigInteger(id);
+        BookingEntity bookingEntity = bookingDao.getBooking(bookingId);
+
+        if(bookingEntity != null) {
+            Booking booking = new Booking();
+            booking.setFirstName(bookingEntity.getFirstName());
+            booking.setLastName(bookingEntity.getLastName());
+
+            Address address = new Address();
+            address.setLine1(bookingEntity.getAddress().getLine1());
+            address.setLine2(bookingEntity.getAddress().getLine2());
+            booking.setAddress(address);
+
+            return booking;
+        }
+
         return null;
     }
 

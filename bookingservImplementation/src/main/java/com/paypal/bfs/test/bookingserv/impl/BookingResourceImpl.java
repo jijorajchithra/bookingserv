@@ -7,6 +7,7 @@ import com.paypal.bfs.test.bookingserv.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -34,6 +35,17 @@ public class BookingResourceImpl implements BookingResource {
         booking.setId(id);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(booking);
+    }
+
+    @Override
+    public ResponseEntity<Booking> getBooking(@PathVariable String id) {
+        Booking booking = bookingService.getBooking(id);
+
+        if(booking == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Booking with given id not found");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(booking);
     }
 
     private void validateRequest(Booking booking) {
