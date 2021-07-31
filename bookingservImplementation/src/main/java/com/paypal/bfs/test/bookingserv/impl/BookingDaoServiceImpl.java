@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Service
 public class BookingDaoServiceImpl implements BookingDaoService {
@@ -23,5 +24,9 @@ public class BookingDaoServiceImpl implements BookingDaoService {
 
     public BookingEntity getBooking(BigInteger id) {
         return bookingRepository.findById(id).orElse(null);
+    }
+
+    public List<BookingEntity> getAllBooking() {
+        return bookingRepository.findAll();
     }
 }
