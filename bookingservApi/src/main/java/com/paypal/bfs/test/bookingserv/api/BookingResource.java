@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -13,6 +15,9 @@ public interface BookingResource {
 
     @RequestMapping(value = "/v1/bfs/booking/{id}", method = GET)
     ResponseEntity<Booking> getBooking(@PathVariable String id);
+
+    @RequestMapping(value = "/v1/bfs/booking", method = GET)
+    ResponseEntity<List<Booking>> getAllBooking();
 
     /**
      * Create {@link Booking} resource

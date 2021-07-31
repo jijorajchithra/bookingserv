@@ -7,15 +7,14 @@ import com.paypal.bfs.test.bookingserv.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.annotation.Resource;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.*;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -46,6 +45,12 @@ public class BookingResourceImpl implements BookingResource {
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(booking);
+    }
+
+    @Override
+    public ResponseEntity<List<Booking>> getAllBooking() {
+        List<Booking> bookings = bookingService.getAllBookings();
+        return ResponseEntity.status(HttpStatus.OK).body(bookings);
     }
 
     private void validateRequest(Booking booking) {
