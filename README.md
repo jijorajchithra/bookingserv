@@ -1,5 +1,11 @@
 # bookingserv
 
+## Assumptions
+- Assuming the craft is to focus on the coding aspect of the problem.
+- Hence the design refactoring opportunities (API model etc) and refactoring were kept aside for brevity. 
+- For the tasks, required pattern and end to end workflow of atleast one example is implemented.
+- Due to the interest of time, the possible enhancements and what could have done is called out.
+
 ## Tasks
 | Index | Task                                                                                                                                                                                                                                                                      | Status                                         | Enhancements                                                                                                                          |
 |-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
